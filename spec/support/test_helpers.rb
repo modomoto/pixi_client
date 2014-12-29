@@ -7,6 +7,22 @@ module TestHelpers
     end
   end
 
+  def set_stock_multiple_parameter_xml_mock
+    <<-EOS
+      <ITEMSTOCK>
+        <ITEM>
+          <EANUPC>12345</EANUPC>
+          <INVBINS>
+            <INVBIN>
+              <BINNAME>A</BINNAME>
+              <STOCK>5</STOCK>
+            </INVBIN>
+          </INVBINS>
+        </ITEM>
+      </ITEMSTOCK>
+    EOS
+  end
+
   def sql_row_set_response_mock(ts = Time.now)
     { :sql_message =>
         {

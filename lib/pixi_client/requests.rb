@@ -1,3 +1,5 @@
+require 'pixi_client/requests/base'
+require 'pixi_client/requests/itemable'
 require 'pixi_client/requests/get_changed_item_stock'
 require 'pixi_client/requests/get_item_info'
 require 'pixi_client/requests/set_stock_multiple'

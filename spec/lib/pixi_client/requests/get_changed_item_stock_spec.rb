@@ -8,7 +8,7 @@ describe PixiClient::Requests::GetChangedItemStock do
     set_default_config
   end
 
-  it { is_expected.to be_a_kind_of(PixiClient::SoapRequest) }
+  it { is_expected.to be_a_kind_of(PixiClient::Requests::Base) }
 
   describe '#api_method' do
     it 'should return :get_changed_item_stock' do

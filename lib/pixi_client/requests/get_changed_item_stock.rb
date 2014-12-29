@@ -1,13 +1,11 @@
 module PixiClient
   module Requests
-    class GetChangedItemStock < PixiClient::SoapRequest
+    class GetChangedItemStock < Base
 
       attr_accessor :since, :row_count
 
-      FIVE_MINUTES = 5 * 60
-
       def initialize(opts)
-        self.since = opts[:since] || (Time.now - FIVE_MINUTES)
+        self.since = opts[:since]
         self.row_count = opts[:row_count]
       end
 

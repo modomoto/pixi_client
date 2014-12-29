@@ -2,7 +2,6 @@ require 'pixi_client/version'
 require 'pixi_client/configuration'
 require 'pixi_client/response_parser'
 require 'pixi_client/response'
-require 'pixi_client/soap_request'
 require 'pixi_client/requests'
 
 module PixiClient

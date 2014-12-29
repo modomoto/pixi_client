@@ -1,6 +1,6 @@
 module PixiClient
   module Requests
-    class SetStockMultiple < PixiClient::SoapRequest
+    class SetStockMultiple < Base
       attr_accessor :item_updates_xml
 
       def initialize(item_updates_xml)
