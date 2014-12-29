@@ -1,8 +1,8 @@
 require 'spec_helper'
 
-describe PixiClient::Requests::GetChangedItemStockRequest do
+describe PixiClient::Requests::GetChangedItemStock do
   let(:ts) { Time.parse('2014-12-25 00:00:00') }
-  subject { PixiClient::Requests::GetChangedItemStockRequest.new(since: ts) }
+  subject { PixiClient::Requests::GetChangedItemStock.new(since: ts) }
 
   before do
     set_default_config
@@ -10,15 +10,9 @@ describe PixiClient::Requests::GetChangedItemStockRequest do
 
   it { is_expected.to be_a_kind_of(PixiClient::SoapRequest) }
 
-  describe '#response_class' do
-    it 'should return PixiClient::Responses::GetChangedItemStockResponse' do
-      expect(subject.response_class).to eq PixiClient::Responses::GetChangedItemStockResponse
-    end
-  end
-
   describe '#api_method' do
     it 'should return :get_changed_item_stock' do
-      expect(subject.api_method).to eq :get_changed_item_stock
+      expect(subject.api_method).to eq :pixi_get_changed_item_stock
     end
   end
 
@@ -38,7 +32,7 @@ describe PixiClient::Requests::GetChangedItemStockRequest do
   end
 
   describe 'call behaviour' do
-    let(:expected_response) { double(body: {}) }
+    let(:expected_response) { double(body: { pixi_get_changed_item_stock_response: { pixi_get_changed_item_stock_result: sql_row_set_response_mock } }) }
     let(:double_client) { double }
 
     before do
@@ -47,7 +41,7 @@ describe PixiClient::Requests::GetChangedItemStockRequest do
 
     it 'should call the client with the appropriate parameters' do
       expect(double_client).to receive(:call)
-        .with(:get_changed_item_stock, attributes: { xmlns: PixiClient.configuration.endpoint }, message: { 'Since' => ts.strftime('%Y-%m-%dT%H:%M:%S.%3N') })
+        .with(:pixi_get_changed_item_stock, attributes: { xmlns: PixiClient.configuration.endpoint }, message: { 'Since' => ts.strftime('%Y-%m-%dT%H:%M:%S.%3N') })
         .and_return(expected_response)
 
       subject.call
@@ -55,13 +49,13 @@ describe PixiClient::Requests::GetChangedItemStockRequest do
 
     it 'should instanciate an instance of GetChangedItemStockResponse with the response body' do
       expect(double_client).to receive(:call).and_return(expected_response)
-      expect(PixiClient::Responses::GetChangedItemStockResponse).to receive(:new).with(expected_response.body)
+      expect(PixiClient::Response).to receive(:new).with(:pixi_get_changed_item_stock, expected_response.body)
       subject.call
     end
 
-    it 'should return an instance of GetChangedItemStockResponse' do
+    it 'should return an instance of Response' do
       expect(double_client).to receive(:call).and_return(expected_response)
-      expect(subject.call).to be_an_instance_of(PixiClient::Responses::GetChangedItemStockResponse)
+      expect(subject.call).to be_an_instance_of(PixiClient::Response)
     end
   end
 end

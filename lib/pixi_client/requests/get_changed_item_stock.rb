@@ -1,6 +1,6 @@
 module PixiClient
   module Requests
-    class GetChangedItemStockRequest < PixiClient::SoapRequest
+    class GetChangedItemStock < PixiClient::SoapRequest
 
       attr_accessor :since, :row_count
 
@@ -11,12 +11,8 @@ module PixiClient
         self.row_count = opts[:row_count]
       end
 
-      def response_class
-        PixiClient::Responses::GetChangedItemStockResponse
-      end
-
       def api_method
-        :get_changed_item_stock
+        :pixi_get_changed_item_stock
       end
 
       def message

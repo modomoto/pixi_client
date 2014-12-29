@@ -7,7 +7,7 @@ module TestHelpers
     end
   end
 
-  def sql_row_set_response_mock(ts)
+  def sql_row_set_response_mock(ts = Time.now)
     { :sql_message =>
         {
           :class => "0",

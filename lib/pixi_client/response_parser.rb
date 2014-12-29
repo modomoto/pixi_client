@@ -50,7 +50,11 @@ module PixiClient
     end
 
     def unparsed_rows
-      response_body[:sql_row_set][:diffgram][:sql_row_set1][:row]
+      return [] if response_body[:sql_row_set][:diffgram][:sql_row_set1].nil?
+
+      rowset = response_body[:sql_row_set][:diffgram][:sql_row_set1][:row]
+
+      rowset.is_a?(Array) && rowset || [rowset]
     end
 
     def parse_row(row)

@@ -4,7 +4,7 @@ module PixiClient
 
     def call
       response = client.call(api_method, attributes: { xmlns: PixiClient.configuration.endpoint }, message: message)
-      response_class.new(response.body)
+      Response.new(api_method, response.body)
     end
 
     private
@@ -13,7 +13,7 @@ module PixiClient
       @client ||= Savon.client(
         wsdl: PixiClient.configuration.endpoint + '?wsdl',
         ssl_verify_mode: :none,
-        basic_auth: [PixiClient.configuration.username, PixiClient]
+        basic_auth: [PixiClient.configuration.username, PixiClient.configuration.password]
       )
     end
   end

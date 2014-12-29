@@ -2,7 +2,7 @@ PATH
   remote: .
   specs:
     pixi_client (0.0.1)
-      savon
+      savon (~> 2.8.0)
 
 GEM
   remote: https://rubygems.org/
