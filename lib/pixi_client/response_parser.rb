@@ -98,7 +98,7 @@ module PixiClient
     def schema_type_to_conversion_method(schema_type)
       case(schema_type)
       when 'sqltypes:int' then :to_integer
-      when 'sqltypes:datetime' then :identity
+      when 'sqltypes:datetime' then :to_time
       when 'sqltypes:bit' then :to_boolean
       when 'sqltypes:varchar' then :identity
       else :identity
@@ -124,6 +124,12 @@ module PixiClient
 
     def to_boolean(value)
       value.to_i == 1
+    end
+
+    def to_time(value)
+      return '' if value.nil?
+
+      Time.parse(value.to_s)
     end
   end
 end

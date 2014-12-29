@@ -130,38 +130,6 @@
                 <BundleItem>0</BundleItem>
                 <RowNr>3</RowNr>
               </row>
-              <row>
-                <ItemKey>102033</ItemKey>
-                <ItemNrInt>207904-504-2</ItemNrInt>
-                <EANUPC>0207904504027</EANUPC>
-                <ItemNrSuppl>W8538Q</ItemNrSuppl>
-                <PhysicalStock>4</PhysicalStock>
-                <AvailableStock>4</AvailableStock>
-                <StockChange>4</StockChange>
-                <MinStockQty>0</MinStockQty>
-                <Enabled>1</Enabled>
-                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
-                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
-                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
-                <BundleItem>0</BundleItem>
-                <RowNr>4</RowNr>
-              </row>
-              <row>
-                <ItemKey>102766</ItemKey>
-                <ItemNrInt>207904-504-3</ItemNrInt>
-                <EANUPC>0207904504034</EANUPC>
-                <ItemNrSuppl>W8538Q</ItemNrSuppl>
-                <PhysicalStock>4</PhysicalStock>
-                <AvailableStock>4</AvailableStock>
-                <StockChange>4</StockChange>
-                <MinStockQty>0</MinStockQty>
-                <Enabled>1</Enabled>
-                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
-                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
-                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
-                <BundleItem>0</BundleItem>
-                <RowNr>5</RowNr>
-              </row>
             </SqlRowSet1>
           </diffgr:diffgram>
         </sqlresultstream:SqlRowSet>
