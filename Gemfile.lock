@@ -2,13 +2,24 @@ PATH
   remote: .
   specs:
     pixi_client (0.0.1)
+      savon
 
 GEM
   remote: https://rubygems.org/
   specs:
+    akami (1.2.2)
+      gyoku (>= 0.4.0)
+      nokogiri
+    builder (3.2.2)
+    byebug (3.5.1)
+      columnize (~> 0.8)
+      debugger-linecache (~> 1.2)
+      slop (~> 3.6)
     celluloid (0.16.0)
       timers (~> 4.0.0)
     coderay (1.1.0)
+    columnize (0.9.0)
+    debugger-linecache (1.2.0)
     diff-lcs (1.2.5)
     ffi (1.9.6)
     formatador (0.2.5)
@@ -24,23 +35,38 @@ GEM
       guard (~> 2.1)
       guard-compat (~> 1.1)
       rspec (>= 2.99.0, < 4.0)
+    gyoku (1.2.2)
+      builder (>= 2.1.2)
     hitimes (1.2.2)
+    httpi (2.3.0)
+      rack
     listen (2.8.4)
       celluloid (>= 0.15.2)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
+    macaddr (1.7.1)
+      systemu (~> 2.6.2)
     method_source (0.8.2)
+    mime-types (1.25.1)
+    mini_portile (0.6.1)
     nenv (0.1.1)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
+    nori (2.4.0)
     pry (0.10.1)
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    pry-byebug (2.0.0)
+      byebug (~> 3.4)
+      pry (~> 0.10)
     pry-nav (0.2.4)
       pry (>= 0.9.10, < 0.11.0)
     pry-remote (0.1.8)
       pry (~> 0.9)
       slop (~> 3.0)
+    rack (1.6.0)
     rake (10.4.2)
     rb-fsevent (0.9.4)
     rb-inotify (0.9.5)
@@ -60,11 +86,27 @@ GEM
       rspec (>= 2.9)
       terminal-notifier (>= 1.4)
     rspec-support (3.1.2)
+    savon (2.8.0)
+      akami (~> 1.2)
+      builder (>= 2.1.2)
+      gyoku (~> 1.2)
+      httpi (~> 2.3)
+      nokogiri (>= 1.4.0)
+      nori (~> 2.4)
+      uuid (~> 2.3.7)
+      wasabi (= 3.3.0)
     slop (3.6.0)
+    systemu (2.6.4)
     terminal-notifier (1.6.2)
     thor (0.19.1)
     timers (4.0.1)
       hitimes
+    uuid (2.3.7)
+      macaddr (~> 1.0)
+    wasabi (3.3.0)
+      httpi (~> 2.0)
+      mime-types (< 2.0.0)
+      nokogiri (>= 1.4.0)
 
 PLATFORMS
   ruby
@@ -75,6 +117,7 @@ DEPENDENCIES
   guard-rspec
   pixi_client!
   pry
+  pry-byebug
   pry-nav
   pry-remote
   rake (~> 10.0)

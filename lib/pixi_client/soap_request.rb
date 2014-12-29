@@ -1,11 +1,8 @@
-require 'singleton'
-
 module PixiClient
-  class SoapClient
+  class SoapRequest
     class << self
-
-      def call(service, request)
-        client.call(service, request)
+      def call(service, message = {})
+        Response.new(client.call(service, message))
       end
 
       private
@@ -16,6 +13,7 @@ module PixiClient
           ssl_verify_mode: :none,
           basic_auth: [PixiClient.configuration.username, PixiClient]
         )
+      end
     end
   end
 end

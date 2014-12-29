@@ -1,6 +1,8 @@
 require 'pixi_client/version'
 require 'pixi_client/configuration'
-require 'pixi_client/soap_client'
+require 'pixi_client/response_parser'
+require 'pixi_client/response'
+require 'pixi_client/soap_request'
 
 module PixiClient
   class << self

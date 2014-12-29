@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sql="http://schemas.microsoft.com/sqlserver/2004/SOAP" xmlns:sqlsoaptypes="http://schemas.microsoft.com/sqlserver/2004/SOAP/types" xmlns:sqlrowcount="http://schemas.microsoft.com/sqlserver/2004/SOAP/types/SqlRowCount" xmlns:sqlmessage="http://schemas.microsoft.com/sqlserver/2004/SOAP/types/SqlMessage" xmlns:sqlresultstream="http://schemas.microsoft.com/sqlserver/2004/SOAP/types/SqlResultStream" xmlns:sqltransaction="http://schemas.microsoft.com/sqlserver/2004/SOAP/types/SqlTransaction" xmlns:sqltypes="http://schemas.microsoft.com/sqlserver/2004/sqltypes" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:method="https://rgpsql4.api.madgeniuses.net/pixiMMO/" xml:space="preserve">
+  <SOAP-ENV:Body>
+    <method:pixiGetChangedItemStockResponse>
+      <method:pixiGetChangedItemStockResult xmlns="">
+        <sqlresultstream:SqlMessage xsi:type="sqlmessage:SqlMessage">
+          <sqlmessage:Class>0</sqlmessage:Class>
+          <sqlmessage:LineNumber>103</sqlmessage:LineNumber>
+          <sqlmessage:Message>Warning: Null value is eliminated by an aggregate or other SET operation.</sqlmessage:Message>
+          <sqlmessage:Number>8153</sqlmessage:Number>
+          <sqlmessage:Procedure>pipiGetChangedItemStock</sqlmessage:Procedure>
+          <sqlmessage:Server>RGPSQL4</sqlmessage:Server>
+          <sqlmessage:Source>Microsoft-SQL/10.0</sqlmessage:Source>
+          <sqlmessage:State>1</sqlmessage:State>
+        </sqlresultstream:SqlMessage>
+        <sqlresultstream:SqlRowSet xsi:type="sqlsoaptypes:SqlRowSet" msdata:UseDataSetSchemaOnly="true" msdata:UDTColumnValueWrapped="true">
+          <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/sqlserver/2004/sqltypes">
+            <xsd:simpleType name="int">
+              <xsd:restriction base="xsd:int"/>
+            </xsd:simpleType>
+            <xsd:simpleType name="varchar">
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+            <xsd:simpleType name="datetime">
+              <xsd:restriction base="xsd:dateTime">
+                <xsd:pattern value="((000[1-9])|(00[1-9][0-9])|(0[1-9][0-9]{2})|([1-9][0-9]{3}))-((0[1-9])|(1[012]))-((0[1-9])|([12][0-9])|(3[01]))T(([01][0-9])|(2[0-3]))(:[0-5][0-9]){2}(\.[0-9]{2}[037])?"/>
+                <xsd:minInclusive value="1753-01-01T00:00:00.000"/>
+                <xsd:maxInclusive value="9999-12-31T23:59:59.997"/>
+              </xsd:restriction>
+            </xsd:simpleType>
+            <xsd:simpleType name="bit">
+              <xsd:restriction base="xsd:boolean"/>
+            </xsd:simpleType>
+          </xsd:schema>
+          <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sqltypes="http://schemas.microsoft.com/sqlserver/2004/sqltypes" targetNamespace="urn:schemas-microsoft-com:sql:SqlRowSet1" elementFormDefault="qualified">
+            <xsd:import namespace="http://schemas.microsoft.com/sqlserver/2004/sqltypes"/>
+            <xsd:element name="SqlRowSet1" msdata:IsDataSet="true" msdata:DataSetNamespace="urn:schemas-microsoft-com:sql:SqlDataSet" msdata:DataSetName="SqlDataSet">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="row" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="ItemKey" type="sqltypes:int"/>
+                        <xsd:element name="ItemNrInt" minOccurs="0">
+                          <xsd:simpleType>
+                            <xsd:restriction base="sqltypes:varchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth">
+                              <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="EANUPC" minOccurs="0">
+                          <xsd:simpleType>
+                            <xsd:restriction base="sqltypes:varchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth">
+                              <xsd:maxLength value="13"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="ItemNrSuppl" minOccurs="0">
+                          <xsd:simpleType>
+                            <xsd:restriction base="sqltypes:varchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth">
+                              <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                        <xsd:element name="PhysicalStock" type="sqltypes:int" minOccurs="0"/>
+                        <xsd:element name="AvailableStock" type="sqltypes:int" minOccurs="0"/>
+                        <xsd:element name="StockChange" type="sqltypes:int" minOccurs="0"/>
+                        <xsd:element name="EstimatedDelivery" type="sqltypes:datetime" minOccurs="0"/>
+                        <xsd:element name="MinStockQty" type="sqltypes:int" minOccurs="0"/>
+                        <xsd:element name="Enabled" type="sqltypes:bit" minOccurs="0"/>
+                        <xsd:element name="OpenSupplierOrderQTY" type="sqltypes:int" minOccurs="0"/>
+                        <xsd:element name="UpdateDate" type="sqltypes:datetime" minOccurs="0"/>
+                        <xsd:element name="OriginalUpdateDate" type="sqltypes:datetime" minOccurs="0"/>
+                        <xsd:element name="BundleItem" type="sqltypes:bit" minOccurs="0"/>
+                        <xsd:element name="RowNr" type="sqltypes:int" minOccurs="0"/>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:schema>
+          <diffgr:diffgram xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+            <SqlRowSet1 xmlns="urn:schemas-microsoft-com:sql:SqlRowSet1">
+              <row>
+                <ItemKey>92664</ItemKey>
+                <ItemNrInt>117843-102-8</ItemNrInt>
+                <EANUPC>0117843102089</EANUPC>
+                <ItemNrSuppl>6017 1550</ItemNrSuppl>
+                <PhysicalStock>9</PhysicalStock>
+                <AvailableStock>8</AvailableStock>
+                <StockChange>9</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T13:25:02.030</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T13:25:02.030</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>1</RowNr>
+              </row>
+              <row>
+                <ItemKey>2071</ItemKey>
+                <ItemNrInt>112852-704-1</ItemNrInt>
+                <EANUPC>0112852704019</EANUPC>
+                <ItemNrSuppl>857819996210</ItemNrSuppl>
+                <PhysicalStock>17</PhysicalStock>
+                <AvailableStock>17</AvailableStock>
+                <StockChange>17</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T15:00:01.510</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T15:00:01.510</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>2</RowNr>
+              </row>
+              <row>
+                <ItemKey>102032</ItemKey>
+                <ItemNrInt>207904-504-1</ItemNrInt>
+                <EANUPC>0207904504010</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>1</PhysicalStock>
+                <AvailableStock>1</AvailableStock>
+                <StockChange>1</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>3</RowNr>
+              </row>
+              <row>
+                <ItemKey>102033</ItemKey>
+                <ItemNrInt>207904-504-2</ItemNrInt>
+                <EANUPC>0207904504027</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>4</PhysicalStock>
+                <AvailableStock>4</AvailableStock>
+                <StockChange>4</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>4</RowNr>
+              </row>
+              <row>
+                <ItemKey>102766</ItemKey>
+                <ItemNrInt>207904-504-3</ItemNrInt>
+                <EANUPC>0207904504034</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>4</PhysicalStock>
+                <AvailableStock>4</AvailableStock>
+                <StockChange>4</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>5</RowNr>
+              </row>
+              <row>
+                <ItemKey>102767</ItemKey>
+                <ItemNrInt>207904-504-4</ItemNrInt>
+                <EANUPC>0207904504041</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>3</PhysicalStock>
+                <AvailableStock>3</AvailableStock>
+                <StockChange>3</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>6</RowNr>
+              </row>
+              <row>
+                <ItemKey>102768</ItemKey>
+                <ItemNrInt>207904-504-5</ItemNrInt>
+                <EANUPC>0207904504058</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>2</PhysicalStock>
+                <AvailableStock>2</AvailableStock>
+                <StockChange>2</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>7</RowNr>
+              </row>
+              <row>
+                <ItemKey>102769</ItemKey>
+                <ItemNrInt>207904-504-6</ItemNrInt>
+                <EANUPC>0207904504065</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>1</PhysicalStock>
+                <AvailableStock>1</AvailableStock>
+                <StockChange>1</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>8</RowNr>
+              </row>
+              <row>
+                <ItemKey>102026</ItemKey>
+                <ItemNrInt>207904-152-1</ItemNrInt>
+                <EANUPC>0207904152013</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>2</PhysicalStock>
+                <AvailableStock>2</AvailableStock>
+                <StockChange>2</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>9</RowNr>
+              </row>
+              <row>
+                <ItemKey>102027</ItemKey>
+                <ItemNrInt>207904-152-2</ItemNrInt>
+                <EANUPC>0207904152020</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>4</PhysicalStock>
+                <AvailableStock>4</AvailableStock>
+                <StockChange>4</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>10</RowNr>
+              </row>
+              <row>
+                <ItemKey>102028</ItemKey>
+                <ItemNrInt>207904-152-3</ItemNrInt>
+                <EANUPC>0207904152037</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>4</PhysicalStock>
+                <AvailableStock>4</AvailableStock>
+                <StockChange>4</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>11</RowNr>
+              </row>
+              <row>
+                <ItemKey>102029</ItemKey>
+                <ItemNrInt>207904-152-4</ItemNrInt>
+                <EANUPC>0207904152044</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>3</PhysicalStock>
+                <AvailableStock>3</AvailableStock>
+                <StockChange>3</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>12</RowNr>
+              </row>
+              <row>
+                <ItemKey>102030</ItemKey>
+                <ItemNrInt>207904-152-5</ItemNrInt>
+                <EANUPC>0207904152051</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>2</PhysicalStock>
+                <AvailableStock>2</AvailableStock>
+                <StockChange>2</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>13</RowNr>
+              </row>
+              <row>
+                <ItemKey>102031</ItemKey>
+                <ItemNrInt>207904-152-6</ItemNrInt>
+                <EANUPC>0207904152068</EANUPC>
+                <ItemNrSuppl>W8538Q</ItemNrSuppl>
+                <PhysicalStock>1</PhysicalStock>
+                <AvailableStock>1</AvailableStock>
+                <StockChange>1</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:51:02.383</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:51:02.383</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>14</RowNr>
+              </row>
+              <row>
+                <ItemKey>129992</ItemKey>
+                <ItemNrInt>210079-153-4</ItemNrInt>
+                <EANUPC>0210079153044</EANUPC>
+                <ItemNrSuppl>16039971</ItemNrSuppl>
+                <PhysicalStock>2</PhysicalStock>
+                <AvailableStock>2</AvailableStock>
+                <StockChange>2</StockChange>
+                <MinStockQty>0</MinStockQty>
+                <Enabled>1</Enabled>
+                <OpenSupplierOrderQTY>0</OpenSupplierOrderQTY>
+                <UpdateDate>2014-12-23T17:54:01.970</UpdateDate>
+                <OriginalUpdateDate>2014-12-23T17:54:01.970</OriginalUpdateDate>
+                <BundleItem>0</BundleItem>
+                <RowNr>15</RowNr>
+              </row>
+            </SqlRowSet1>
+          </diffgr:diffgram>
+        </sqlresultstream:SqlRowSet>
+        <sqlresultstream:SqlResultCode xsi:type="sqlsoaptypes:SqlResultCode">0</sqlresultstream:SqlResultCode>
+      </method:pixiGetChangedItemStockResult>
+    </method:pixiGetChangedItemStockResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
