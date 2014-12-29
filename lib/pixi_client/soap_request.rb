@@ -1,19 +1,20 @@
 module PixiClient
   class SoapRequest
-    class << self
-      def call(service, message = {})
-        Response.new(client.call(service, message))
-      end
+    TIME_STRING_FORMAT = '%Y-%m-%dT%H:%M:%S.%3N'
 
-      private
+    def call
+      response = client.call(api_method, attributes: { xmlns: PixiClient.configuration.endpoint }, message: message)
+      response_class.new(response.body)
+    end
 
-      def client
-        @client ||= Savon.client(
-          wsdl: PixiClient.configuration.endpoint,
-          ssl_verify_mode: :none,
-          basic_auth: [PixiClient.configuration.username, PixiClient]
-        )
-      end
+    private
+
+    def client
+      @client ||= Savon.client(
+        wsdl: PixiClient.configuration.endpoint + '?wsdl',
+        ssl_verify_mode: :none,
+        basic_auth: [PixiClient.configuration.username, PixiClient]
+      )
     end
   end
 end
