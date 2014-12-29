@@ -47,7 +47,7 @@ describe PixiClient::Requests::GetChangedItemStock do
       subject.call
     end
 
-    it 'should instanciate an instance of GetChangedItemStockResponse with the response body' do
+    it 'should instanciate an instance of Response with the response body' do
       expect(double_client).to receive(:call).and_return(expected_response)
       expect(PixiClient::Response).to receive(:new).with(:pixi_get_changed_item_stock, expected_response.body)
       subject.call
