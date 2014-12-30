@@ -1,5 +1,4 @@
 require 'spec_helper'
-require File.join('lib', 'pixi_client', 'requests', 'itemable_spec')
 
 describe PixiClient::Requests::GetItemStockBins do
   subject { PixiClient::Requests::GetItemStockBins.new(:ean, '1234567890123') }

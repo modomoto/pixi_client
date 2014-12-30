@@ -1,25 +1,30 @@
 require 'spec_helper'
 
-describe PixiClient::SoapRequest do
+describe PixiClient::Requests::Base do
   let(:savon_client) { double('savon_client') }
+  subject { PixiClient::Requests::Base.new }
 
   before do
-    allow(PixiClient::SoapRequest).to receive(:client).and_return(savon_client)
+    allow(subject).to receive(:api_method).and_return(:fancy_soap_call)
+    allow(subject).to receive(:message).and_return({ a: 1 })
+    allow(subject).to receive(:client).and_return(savon_client)
   end
 
-  describe '::call' do
-    let(:service) { service = :fancy_soap_call }
-    let(:message) { { a: 1 } }
-
+  describe '#call' do
     it 'should call the savon client with the corresponding params' do
-      expect(savon_client).to receive(:call).with(service, message)
-      PixiClient::SoapRequest.call(service, message)
+      expect(savon_client).to(
+        receive(:call).
+          with(subject.api_method, attributes: { xmlns: PixiClient.configuration.endpoint }, message: subject.message).
+          and_return(OpenStruct.new(body: {}))
+      )
+      allow(PixiClient::Response).to receive(:new)
+      subject.call
     end
 
-    it 'returns a PixiClient::Response object' do
-      allow(savon_client).to receive(:call)
-      response = PixiClient::SoapRequest.call(service, message)
-      expect(response).to be_an_instance_of(PixiClient::Response)
+    it 'instantiates a PixiClient::Response instance' do
+      allow(savon_client).to receive(:call).and_return(OpenStruct.new(body: {}))
+      expect(PixiClient::Response).to receive(:new).with(subject.api_method, {})
+      response = subject.call
     end
   end
 end

@@ -3,7 +3,7 @@ module PixiClient
     class Base
       TIME_STRING_FORMAT = '%Y-%m-%dT%H:%M:%S.%3N'
       FIVE_MINUTES = 5 * 60
-      
+
       def call
         response = client.call(api_method, attributes: { xmlns: PixiClient.configuration.endpoint }, message: message)
         Response.new(api_method, response.body)

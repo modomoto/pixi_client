@@ -1,7 +1,7 @@
 require 'spec_helper'
 
 describe PixiClient::ResponseParser do
-  let(:ts) { Time.now }
+  let(:ts) { Time.at(Time.now.to_i) } # HACK: avoid microseconds strange behaviour
   let(:response_body) { sql_row_set_response_mock(ts) }
 
   describe 'parsing' do
