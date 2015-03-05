@@ -1,9 +1,13 @@
+require 'yaml'
+
 module TestHelpers
   def set_default_config
+    config_data = YAML.load_file(File.join(File.dirname(__FILE__), '../..', 'config', 'pixi.yml'))['test']
+
     PixiClient.configure do |config|
-      config.endpoint = 'https://rgpsql4.api.madgeniuses.net/pixiMMO/'
-      config.username = 'pixiMMO'
-      config.password = 'z7ReDEDcC3UwN6_MMO'
+      config.endpoint = config_data['endpoint']
+      config.username = config_data['username']
+      config.password = config_data['password']
     end
   end
 
