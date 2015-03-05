@@ -1,3 +1,5 @@
+require 'savon'
+
 module PixiClient
   module Requests
     class Base

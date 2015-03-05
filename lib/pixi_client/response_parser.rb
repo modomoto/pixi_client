@@ -50,6 +50,8 @@ module PixiClient
     end
 
     def unparsed_rows
+      return [] if response_body[:sql_row_set].nil?
+      return [] if response_body[:sql_row_set][:diffgram].nil?
       return [] if response_body[:sql_row_set][:diffgram][:sql_row_set1].nil?
 
       rowset = response_body[:sql_row_set][:diffgram][:sql_row_set1][:row]
@@ -80,9 +82,9 @@ module PixiClient
 
     def rowset_schema_to_conversion_hash(schema)
       field_list = schema[:element][:complex_type][:sequence][:element][:complex_type][:sequence][:element]
+      field_list = [field_list] unless field_list.is_a?(Array)
       field_list.reduce([]) do |memo, field|
         conversion = {}
-
         conversion[:name] = underscore(field[:@name])
 
         if field[:@type]

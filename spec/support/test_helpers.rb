@@ -3,7 +3,7 @@ module TestHelpers
     PixiClient.configure do |config|
       config.endpoint = 'https://rgpsql4.api.madgeniuses.net/pixiMMO/'
       config.username = 'pixiMMO'
-      config.password = 'dFFuYgr@XZqpM$hn_}'
+      config.password = 'z7ReDEDcC3UwN6_MMO'
     end
   end
 
