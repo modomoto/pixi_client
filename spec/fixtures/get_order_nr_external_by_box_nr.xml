@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/" xmlns:sql="http://schemas.microsoft.com/sqlserver/2004/SOAP" xmlns:sqlsoaptypes="http://schemas.microsoft.com/sqlserver/2004/SOAP/types" xmlns:sqlrowcount="http://schemas.microsoft.com/sqlserver/2004/SOAP/types/SqlRowCount" xmlns:sqlmessage="http://schemas.microsoft.com/sqlserver/2004/SOAP/types/SqlMessage" xmlns:sqlresultstream="http://schemas.microsoft.com/sqlserver/2004/SOAP/types/SqlResultStream" xmlns:sqltransaction="http://schemas.microsoft.com/sqlserver/2004/SOAP/types/SqlTransaction" xmlns:sqltypes="http://schemas.microsoft.com/sqlserver/2004/sqltypes" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:method="https://rgpsql4.api.madgeniuses.net/pixiMMO/" xml:space="preserve">
+  <SOAP-ENV:Body>
+    <method:pixiGetOrderNrExternalByBoxNrResponse>
+      <method:pixiGetOrderNrExternalByBoxNrResult xmlns="">
+        <sqlresultstream:SqlRowSet xsi:type="sqlsoaptypes:SqlRowSet" msdata:UseDataSetSchemaOnly="true" msdata:UDTColumnValueWrapped="true">
+          <xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" targetNamespace="http://schemas.microsoft.com/sqlserver/2004/sqltypes">
+            <xsd:simpleType name="int">
+              <xsd:restriction base="xsd:int"/>
+            </xsd:simpleType>
+            <xsd:simpleType name="varchar">
+              <xsd:restriction base="xsd:string"/>
+            </xsd:simpleType>
+          </xsd:schema>
+          <xsd:schema xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:sqltypes="http://schemas.microsoft.com/sqlserver/2004/sqltypes" targetNamespace="urn:schemas-microsoft-com:sql:SqlRowSet1" elementFormDefault="qualified">
+            <xsd:import namespace="http://schemas.microsoft.com/sqlserver/2004/sqltypes"/>
+            <xsd:element name="SqlRowSet1" msdata:IsDataSet="true" msdata:DataSetNamespace="urn:schemas-microsoft-com:sql:SqlDataSet" msdata:DataSetName="SqlDataSet">
+              <xsd:complexType>
+                <xsd:sequence>
+                  <xsd:element name="row" minOccurs="0" maxOccurs="unbounded">
+                    <xsd:complexType>
+                      <xsd:sequence>
+                        <xsd:element name="OrderNr" type="sqltypes:int" minOccurs="0"/>
+                        <xsd:element name="OrderNrExternal" minOccurs="0">
+                          <xsd:simpleType>
+                            <xsd:restriction base="sqltypes:varchar" sqltypes:localeId="1033" sqltypes:sqlCompareOptions="IgnoreCase IgnoreKanaType IgnoreWidth">
+                              <xsd:maxLength value="50"/>
+                            </xsd:restriction>
+                          </xsd:simpleType>
+                        </xsd:element>
+                      </xsd:sequence>
+                    </xsd:complexType>
+                  </xsd:element>
+                </xsd:sequence>
+              </xsd:complexType>
+            </xsd:element>
+          </xsd:schema>
+          <diffgr:diffgram xmlns:diffgr="urn:schemas-microsoft-com:xml-diffgram-v1">
+            <SqlRowSet1 xmlns="urn:schemas-microsoft-com:sql:SqlRowSet1">
+              <row>
+                <OrderNr>10000</OrderNr>
+                <OrderNrExternal>193498</OrderNrExternal>
+              </row>
+            </SqlRowSet1>
+          </diffgr:diffgram>
+        </sqlresultstream:SqlRowSet>
+        <sqlresultstream:SqlResultCode xsi:type="sqlsoaptypes:SqlResultCode">0</sqlresultstream:SqlResultCode>
+      </method:pixiGetOrderNrExternalByBoxNrResult>
+    </method:pixiGetOrderNrExternalByBoxNrResponse>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
