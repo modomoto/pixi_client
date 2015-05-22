@@ -88,7 +88,7 @@ According to the pixi documentation the response is a collection of rows with th
 * RowNr
 
 ```ruby
-response = PixiClient::Requests::GetChangedItemStock.new(since: 15.minutes.before).call
+response = PixiClient::Requests::GetChangedItemStock.new(since: 15.minutes.ago).call
 
 single_row = response.rows.first
 
