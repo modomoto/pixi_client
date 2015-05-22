@@ -25,8 +25,8 @@ describe PixiClient::Requests::GetOrderComments do
 
     it 'should call the client with the appropriate parameters' do
       expect(double_client).to receive(:call)
-      .with(:pixi_get_order_comments, attributes: { xmlns: PixiClient.configuration.endpoint }, message: { 'OrderNr' => '12345' })
-      .and_return(expected_response)
+        .with(:pixi_get_order_comments, attributes: { xmlns: PixiClient.configuration.endpoint }, message: { 'OrderNr' => '12345' })
+        .and_return(expected_response)
 
       subject.call
     end

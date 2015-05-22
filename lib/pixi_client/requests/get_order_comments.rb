@@ -4,7 +4,7 @@ module PixiClient
       attr_accessor :pixi_order_number
 
       def initialize(pixi_order_number)
-        self.order_id = order_id
+        self.pixi_order_number = pixi_order_number
       end
 
       def api_method
