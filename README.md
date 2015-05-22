@@ -58,26 +58,58 @@ PixiClient.configure do |config|
 end
 ```
 
-### List of implemented calls
-
-TODO
-
 ### Example of usage
+
+To have a list of the implemented requests, have a look to the lib/requests folder.
 
 All the requests has a common interface: the request to pixi is performed when the `call` method is invoked and it returns a response object.
 
 The returned response object has two main methods:
-* rows: an array of OpenStruct instances, where every instance has the attributes described in the API documentation. If the response is empty, it returns an empty array.
+* rows: an array of OpenStruct instances, where every instance has the attributes described in the API documentation with the data type described in the XML schema. If the response is empty, it returns an empty array.
 * messages: an array of OpenStruct instances, where every instance represent a warning or error message.
 
-For example, supose you want to get the changed stock in the last 15 minutes using the API service pixiGetChangedItemsStock. According to the pixi documentation 
+For example, supose you want to get the changed stock in the last 15 minutes using the API service pixiGetChangedItemsStock (PixiClient::Requests::GetChangedItemStock).
+
+According to the pixi documentation the response is a collection of rows with the following columns:
+* ItemKey
+* ItemNrInt
+* EANUPC
+* ItemNrSuppl
+* PhysicalStock
+* AvailableStock
+* StockChange
+* EstimatedDelivery
+* MinStockQty
+* Enabled
+* OpenSupplierOrderQTY
+* UpdateDate
+* OriginalUpdateDate
+* BundleItem
+* RowNr
 
 ```ruby
-PixiClient
-  module Requests
-    class GetChangedItemStock
-```
+response = PixiClient::Requests::GetChangedItemStock.new(since: 15.minutes.before).call
 
+single_row = response.rows.first
+
+# Single row is an OpenStruct with the following ruby attributes:
+# => item_key
+# => item_nr_int
+# => eanup
+# => item_nr_suppl
+# => physical_stock
+# => available_stock
+# => stock_change
+# => estimated_delivery
+# => min_stock_qty
+# => enabled
+# => open_supplier_order_qty
+# => update_date
+# => original_update_date
+# => bundle_item
+# => row_nr
+
+```
 ### Extending it
 
 We don't implement all the possible requests to the pixi SOAP API. Disappointed? You shouldn't.
