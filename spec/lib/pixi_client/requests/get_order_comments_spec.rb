@@ -16,7 +16,7 @@ describe PixiClient::Requests::GetOrderComments do
   end
 
   describe 'call behaviour' do
-    let(:expected_response) { double(body: { pixi_get_item_info_response: { pixi_get_item_info_result: sql_row_set_response_mock } }) }
+    let(:expected_response) { double(body: { pixi_get_order_comments_response: { pixi_get_order_comments_result: sql_row_set_response_mock } }) }
     let(:double_client) { double }
 
     before do
