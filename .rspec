@@ -1,0 +1,2 @@
+--color --format doc --backtrace
+--require spec_helper
