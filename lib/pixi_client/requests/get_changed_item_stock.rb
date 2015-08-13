@@ -8,6 +8,7 @@ module PixiClient
         self.since = opts[:since]
         self.row_count = opts[:row_count]
         self.offset = opts[:offset]
+        self.location_id = opts[:location_id]
       end
 
       def api_method
