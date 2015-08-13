@@ -2,7 +2,7 @@ module PixiClient
   module Requests
     class GetChangedItemStock < Base
 
-      attr_accessor :since, :row_count, :offset
+      attr_accessor :since, :row_count, :offset, :location_id
 
       def initialize(opts)
         self.since = opts[:since]
@@ -17,6 +17,7 @@ module PixiClient
       def message
         { 'Since' => since.strftime(TIME_STRING_FORMAT) }.tap do |opts|
           opts['RowCount'] = row_count unless row_count.nil?
+          opts['LocID'] = location_id
           opts['Start'] = offset unless offset.nil?
         end
       end
