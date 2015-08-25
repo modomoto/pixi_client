@@ -18,7 +18,7 @@ module PixiClient
       def message
         { 'Since' => since.strftime(TIME_STRING_FORMAT) }.tap do |opts|
           opts['RowCount'] = row_count unless row_count.nil?
-          opts['LocID'] = location_id
+          opts['LocID'] = location_id unless location_id.nil?
           opts['Start'] = offset unless offset.nil?
         end
       end
