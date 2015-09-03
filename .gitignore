@@ -30,3 +30,5 @@
 
 # Pixi data connection
 /config/pixi.yml
+
+Gemfile.lock
