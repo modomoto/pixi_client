@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    pixi_client (0.0.4)
+    pixi_client (0.0.5)
       savon (~> 2.10.1)
 
 GEM
