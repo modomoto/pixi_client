@@ -5,8 +5,15 @@ module PixiClient
 
       # Pixi* documentation says that the pixi order number
       # is mandatory for this requests
-      def initialize(pixi_order_number)
-        self.pixi_order_number = pixi_order_number
+      def initialize(options = {})
+
+        if options[:pixi_order_number]
+          @pixi_order_number = options[:pixi_order_number]
+        elsif options[:message]
+          @message = options[:message]
+        else
+          fail('Parameters must include either pixi_order_number or message-Hash')
+        end
       end
 
       def api_method
@@ -14,6 +21,7 @@ module PixiClient
       end
 
       def message
+        return @message if @message
         { 'OrderNR' => pixi_order_number }
       end
     end

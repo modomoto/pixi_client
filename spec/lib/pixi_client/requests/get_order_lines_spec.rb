@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe PixiClient::Requests::GetOrderLines do
   let(:pixi_order_number) { 1 }
-  subject { PixiClient::Requests::GetOrderLines.new(pixi_order_number) }
+  subject { PixiClient::Requests::GetOrderLines.new(pixi_order_number: pixi_order_number) }
 
   before do
     set_default_config
@@ -16,18 +16,11 @@ describe PixiClient::Requests::GetOrderLines do
     end
   end
 
-  describe 'call behaviour' do
-    let(:expected_response) { double(body: { pixi_get_orderline_response: { pixi_get_orderline_result: sql_row_set_response_mock } }) }
-    let(:double_client) { double }
-
-    before do
-      allow(subject).to receive(:client).and_return(double_client)
-    end
-
+  shared_examples "call_behaviour" do
     it 'should call the client with the appropriate parameters' do
       expect(double_client).to receive(:call)
-      .with(:pixi_get_orderline, attributes: { xmlns: PixiClient.configuration.endpoint }, message: { 'OrderNR' => pixi_order_number})
-      .and_return(expected_response)
+        .with(:pixi_get_orderline, attributes: { xmlns: PixiClient.configuration.endpoint }, message: { 'OrderNR' => pixi_order_number})
+        .and_return(expected_response)
 
       subject.call
     end
@@ -44,4 +37,22 @@ describe PixiClient::Requests::GetOrderLines do
     end
   end
 
+
+  describe 'call behaviour' do
+    let(:expected_response) { double(body: { pixi_get_orderline_response: { pixi_get_orderline_result: sql_row_set_response_mock } }) }
+    let(:double_client) { double }
+
+    before do
+      allow(subject).to receive(:client).and_return(double_client)
+    end
+
+    context 'given pixi_order_number' do
+      it_should_behave_like 'call_behaviour'
+    end
+    context 'given message-hash' do
+      subject { PixiClient::Requests::GetOrderLines.new(message: {'OrderNR' => pixi_order_number}) }
+      it_should_behave_like 'call_behaviour'
+    end
+  end
 end
+
