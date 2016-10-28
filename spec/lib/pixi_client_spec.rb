@@ -6,6 +6,7 @@ describe PixiClient do
       configuration.endpoint = 'endpoint'
       configuration.username = 'username'
       configuration.password = 'random-password'
+      configuration.wsdl     = 'some/path/somewhere.wsdl'
     end
   end
 
@@ -14,6 +15,7 @@ describe PixiClient do
       expect(PixiClient.configuration.endpoint).to eq 'endpoint'
       expect(PixiClient.configuration.username).to eq 'username'
       expect(PixiClient.configuration.password).to eq 'random-password'
+      expect(PixiClient.configuration.wsdl).to eq 'some/path/somewhere.wsdl'
     end
   end
 end
