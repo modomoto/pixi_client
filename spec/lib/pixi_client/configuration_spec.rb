@@ -11,6 +11,12 @@ describe PixiClient::Configuration do
       end
     end
 
+    describe '#wsdl' do
+      it 'should be nil' do
+        expect(subject.wsdl).to be_nil
+      end
+    end
+
     describe '#username' do
       it 'should be nil' do
         expect(subject.username).to be_nil
@@ -35,6 +41,13 @@ describe PixiClient::Configuration do
     it 'sets the username' do
       subject.username = 'username'
       expect(subject.username).to eq 'username'
+    end
+  end
+
+  describe '#wsdl=' do
+    it 'sets the wsdl' do
+      subject.wsdl = 'wsdl_set'
+      expect(subject.wsdl).to eq 'wsdl_set'
     end
   end
 
