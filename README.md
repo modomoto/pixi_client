@@ -49,7 +49,7 @@ Or install it yourself as:
 #### Rails (with cached wsdl document)
 
 
-run ```bundle exec rake pixi_client:download_wsdl``` in your Rails App root.
+run ```bundle exec rake pixi_client:download_wsdl``` in your Rails app root and add the following initializer to the project.
 
 ```ruby
 PixiClient.configure do |config|
@@ -62,7 +62,7 @@ end
 
 #### Rails (with remote wsdl document)
 
-If you don't want to cache the ```wsdl``` you can omit the ```wsdl``` variable in the configuration. So the gem will download the wdsl document at each request and your configuration will look like:
+If you don't want to cache the ```wsdl``` you can omit that variable in the initializer. The gem will then download the wdsl document at each request and your configuration will look like:
 
 ```ruby
 PixiClient.configure do |config|
