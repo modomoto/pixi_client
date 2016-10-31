@@ -15,7 +15,7 @@ module PixiClient
 
       def client
         @client ||= Savon.client(
-          wsdl: PixiClient.configuration.endpoint + '?wsdl',
+          wsdl: PixiClient.configuration.wsdl_document,
           open_timeout: 300,
           read_timeout: 300,
           ssl_verify_mode: :none,

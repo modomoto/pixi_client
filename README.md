@@ -55,6 +55,7 @@ PixiClient.configure do |config|
   config.endpoint = <your_pixi_endpoing_url>
   config.username = <your_pixi_username>
   config.password = <your_pixi_password>
+  config.wsdl     = <path/to/wdsl_document.wsdl>
 end
 ```
 

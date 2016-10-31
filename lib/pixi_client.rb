@@ -1,4 +1,5 @@
 require 'pixi_client/version'
+require 'pixi_client/error'
 require 'pixi_client/configuration'
 require 'pixi_client/response_parser'
 require 'pixi_client/response'
